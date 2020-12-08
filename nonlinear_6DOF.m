@@ -1,7 +1,7 @@
 function x_dot = nonlinear_6DOF(x, Fb, Mb)
 % rigid body aircraft 6DOF nonlinear equations of motion
 % in Body-axis with Flat Earth Assumption.
-% x = [u,v,w,p,q,r,phi,theta,psi,xe,ye,h(=ze))]  ==> must be (12,1)
+% x = [u,v,w,p,q,r,phi,theta,psi,xe,ye,h(=ze)), pdot]  ==> must be (13,1)
 %%%% u = [delta_T, delta_e, delta_a, delta_r]
 
 % u,v,w -> in m/s
@@ -14,7 +14,7 @@ function x_dot = nonlinear_6DOF(x, Fb, Mb)
 % References : Ch. 7, Aircraft Flight Dynamics and Control,
 %               by Wayne Durham.
 
-global m Ib Ib_inv;
+global m Ib Ib_inv pdot;
 
 % to speed up the calcultions
 s_phi = sin(x(7));
@@ -45,10 +45,10 @@ T_EB = [c_theta*c_psi, -c_phi*s_psi + s_phi*s_theta*c_psi, ...
 
 %right now they are in "rad"  change to "deg" ???????????
 %% Equations of Motion (Body axis)
-x_dot = zeros(12,1);
+x_dot = zeros(13,1);
 x_dot(1:3,1) =  (Fb/m) - omega_b*x(1:3,1);
 x_dot(4:6,1) = Ib_inv*(Mb - omega_b*Ib*x(4:6,1));
 x_dot(7:9,1) =  T_BH*x(4:6,1);
 x_dot(10:12,1) = T_EB*x(1:3,1);
-
+x_dot(13) = pdot;
 end
