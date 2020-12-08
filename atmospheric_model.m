@@ -1,6 +1,6 @@
-function rho = atmospheric_model(altitude)
-% calculate the atmospheric density(in Kg/m^3) for the 
-% given altitude
+function [rho, a] = atmospheric_model(altitude)
+% calculate the atmospheric density(in Kg/m^3) and speed of sound
+% at the given altitude
 % 
 % Ref: U.S. Standard Atmosphere, 1976
 
@@ -70,4 +70,9 @@ else
 end
 
 rho = p / (R_air * T);
+
+% a = sqrt(mu, R, T).
+% mu = ratio of specific heats (1.4 for air)
+% R = gas const (286 m^2/s^2/K for air)
+a = sqrt(1.4*286*T);
 end
