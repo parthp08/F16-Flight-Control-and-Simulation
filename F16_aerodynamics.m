@@ -76,7 +76,7 @@ Cn_delta_r = -8.115894e-02 - 1.156580e-02*alpha + 2.514167e-02*beta ...
              + 1.004297e-01*(alpha^2);
 
 % dynamic pressure
-rho = atmospheric_model(x(12));
+[rho,~] = atmospheric_model(x(12));
 q_bar = 0.5*rho*V*V;
 
 % non-dimensional
