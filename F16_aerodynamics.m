@@ -1,4 +1,4 @@
-function [F_aero, M_aero] = F16_aerodynamics(x,u_sat)
+function FM_aero = F16_aerodynamics(x,u_sat)
 % Compute F16 Body-axis Aerodynamics forces and moments
 % u_sat = [delta_T, delta_e, delta_a, delta_r]
 %
@@ -99,4 +99,5 @@ Cn = Cn_0 + p_nd*Cn_p + r_nd*Cn_r + u_sat(3)*Cn_delta_a + ...
 F_aero = q_bar*S*[Cx; Cy; Cz]; % N
 M_aero = q_bar*S*[Cl*b; Cm*c_bar; Cn*b];   % N*m
 
+FM_aero = [F_aero; M_aero];
 end

@@ -16,6 +16,11 @@ function x_dot = nonlinear_6DOF(x, Fb, Mb)
 
 global m Ib Ib_inv pdot;
 
+% % debug
+% disp(size(x));
+% disp(size(Fb));
+% disp(size(Mb));
+
 % to speed up the calcultions
 s_phi = sin(x(7));
 c_phi = cos(x(7));

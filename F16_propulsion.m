@@ -1,4 +1,4 @@
-function [F_prop, M_prop] = F16_propulsion(x,u_sat)
+function FM_prop = F16_propulsion(x,u_sat)
 % Calculate Propulsive Forces and Moments 
 % u_sat = [delta_T, delta_e, delta_a, delta_r]
 %
@@ -120,4 +120,5 @@ end
 %% Propulsive Force and Moment about body axis
 F_prop = [thrust; 0; 0];
 M_prop = [0; 0; 0]; % N*m1
+FM_prop = [F_prop; M_prop];
 end
