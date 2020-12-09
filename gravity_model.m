@@ -6,7 +6,7 @@ function FM_grav = gravity_model(x)
 
 global g;
 
-F_grav = g*[-sin(x(8)); sin(x(7))*cos(x(8)); cos(x(7))*cos(x(8))]; % N
-M_grav = [0; 0; 0]; % N*m
+F_grav = g*[-sin(x(8)); sin(x(7))*cos(x(8)); cos(x(7))*cos(x(8))];
+M_grav = [0; 0; 0];
 FM_grav = [F_grav; M_grav];
 end
