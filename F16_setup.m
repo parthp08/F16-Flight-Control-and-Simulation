@@ -71,6 +71,7 @@ u = [
 TF = 60; % model run time, in seconds
 sim('six_dof.slx');
 
+%%
 % Plot the outouts.
 t = ans.simX.Time;
 

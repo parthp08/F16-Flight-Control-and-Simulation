@@ -69,7 +69,7 @@ u = [
     -20*DTOR;      % rudder
 ];
 
-FM_aero = F16_aerodynamics_old(x_init, u);
+FM_aero = F16_aerodynamics(x_init, u);
 FM_prop = F16_propulsion(x_init, u);
 FM_grav = gravity_model(x_init);
 
