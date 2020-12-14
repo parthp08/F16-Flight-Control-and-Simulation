@@ -14,7 +14,7 @@ S = 300; % wing area, ft^2
 c_bar = 11.32; % mean aero cord, ft
 b = 30; % wing span, ft
 xcg_ref = 0.35;%*c_bar; % reference c.g. location
-x_cg = 0.4;%*c_bar; % c.g. location % VARIABLE
+x_cg = 0.3;%*c_bar; % c.g. location % VARIABLE
 
 RTOD = 57.29578;
 DTOR = 1/RTOD;
@@ -37,9 +37,9 @@ Ib_inv =    1.0e-03 * [
     0.0016         0    0.0159;
 ];
 
-V_init = 500; % ft/s
-alpha_init = 0.5; % rad
-beta_init = -0.2; % rad
+V_init = 502; % ft/s
+alpha_init = 0.2485; % rad
+beta_init = 4.8e-4; % rad
 [u_init, v_init, w_init] = Valphabeta2uvw(V_init,alpha_init,beta_init);
 
 % initial states
@@ -47,24 +47,24 @@ x_init = [
     u_init;     % u
     v_init;      % v 
     w_init;      % w
-    0.7;      % p
-    -0.8;      % q
-    0.9;      % r
-    -1;      % phi
-    1;    % theta
-    -1;      % psi
-    1000;      % x
-    900;      % y
-    10000;  % h
-    actual_power;
+    -0.01555;      % p
+    0.2934;      % q
+    0.06071;      % r
+    1.367;      % phi
+    0.05185;    % theta
+    0;      % psi
+    0;      % x
+    0;      % y
+    0;  % h
+    67.3538;
 ];
 
 % control inputs
 u = [ 
-    0.9;    % throttle
-    20*DTOR;    % elevator
-    -15*DTOR;      % aileron
-    -20*DTOR;      % rudder
+    0.849;    % throttle
+    -6.252*DTOR;    % elevator
+    0.13*DTOR;      % aileron
+    -0.5112*DTOR;      % rudder
 ];
 
 % Run simulink model
