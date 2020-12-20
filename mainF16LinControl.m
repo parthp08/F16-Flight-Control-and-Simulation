@@ -13,8 +13,8 @@ B11=TdT/m; B12=Xdm/m;
 B22=Zdm/m;
 B32=Mdm/Iyy;
 B=[B11 B12; 0 B22; 0 B32; 0 0];
-C=C_longitude_lo(:,1:5);
-D=D_longitude_lo;
+C=A;
+D=zeros(5,2);
 %% Numerically integrate ODE.
 SimOut = sim('LinearizedF16.mdl','AbsTol','1e-6','RelTol','1e-6',...
         'SaveState','on','StateSaveName','Xout',...
