@@ -4,7 +4,7 @@
 
 % matrices are obtained from "Model Linearizer" Tool in Simulink
 
-                %   V   alpha  q  theta  Xe  h     power
+                %   	
 %      x_initial = [500,  0,   0,  0,    0, 25000, 4.66];
 %      u_initial = [0.5, -3.0159, 0.25]; % deg
 
